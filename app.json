@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#42c642",
+    "navigationBarTitleText": "天气助手",
+    "navigationBarTextStyle":"white"
+  }
+}

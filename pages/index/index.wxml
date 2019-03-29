@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<view>
+  <view class="top_city">
+    {{ topCity.center }}
+  </view>
+
+  <swiper class="container" style="background:#42c642;">
+    <block wx:for="{{citySelected}}" wx:key="cityIdx" wx:for-item="cityCode">
+      <swiper-item style="background:#42c642;" key="1">
+        <scroll-view scroll-y="true" scroll-with-animation="true" class="container">
+          <view class="today">
+            <view class="today-top">
+              <view class="today-weather">
+                <view class="today-weather-img">
+                  <image class="pic" src="{{weatherData[cityCode].realtime.weather.pic}}"></image>
+                </view>
+                <view class="desc">
+                  <view>{{ weatherData[cityCode].realtime.weather.info }}</view>
+                  <view>{{ weatherData[cityCode].realtime.wind.direct }}{{ weatherData[cityCode].realtime.wind.power }}</view>
+                </view>
+              </view>
+              <view class="today-wendu">
+                <text>{{ weatherData[cityCode].realtime.weather.temperature }}℃ </text>
+              </view>
+              <view class="today-PM">
+                <text>湿度：{{weatherData[cityCode].realtime.weather.humidity}}</text>
+                <text>PM2.5：{{ weatherData[cityCode].pm25.pm25.pm25 }}</text>
+                <text>{{ weatherData[cityCode].pm25.pm25.quality }}</text>
+              </view>
+              <view class="today-bottom"></view>
+            </view>
+            <view class="feature">
+              <view class="day" wx:for="{{weatherData[cityCode].weather}}" wx:key="dayIdx">
+                <view class="date">{{item.shortDate}}</view>
+                <view class="date">周{{item.week}}</view>
+                <image class="pic" src="{{item.day_pic}}"></image>
+                <view class="desc">
+                  <text>{{item.info.day[1]}}</text>
+                  <text>{{item.info.day[3]}} {{item.info.day[4]}}</text>
+                </view>
+                <view class="temperature">
+                  <text>{{item.info.night[2]}}~{{item.info.day[2]}}°</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
